@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import databaseService from '../../appwrite/database';
 
 function CreatePost() {
@@ -18,6 +19,16 @@ function CreatePost() {
     const featuredImage = "test";
     const userId = userData.providerUid;
     databaseService.createPost("1234", {title, content, featuredImage, status, userId});
+    toast("Your post is created", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
   }
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom';
+import {toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import authService from '../../appwrite/auth'
 import { login as authStoreLogin } from '../../features/auth/authSlice'
@@ -20,10 +21,20 @@ function Login() {
         .then((userData) => {
             console.log("Loged in user data => " + JSON.stringify(userData));
             dispatch(authStoreLogin(userData))
-            localStorage.setItem("logedInUser", JSON.stringify(userData))
+            localStorage.setItem("logedInUser", JSON.stringify(userData));
+            toast("You have loged in sucessfully. Welcome back !", {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             navigate('/')
         })
-        .catch(error => console.log("Error occured while log in..."))
+        .catch(error => console.log("Error occured while log in...", error))
         .finally(() => {
             dispatch(unSetLoading())
         })

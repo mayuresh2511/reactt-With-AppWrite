@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import authService from '../../appwrite/auth';
@@ -16,7 +17,8 @@ function Register() {
     .then((userData) => {
         console.log("Loged in user data => " + JSON.stringify(userData));
         dispatch(authStoreLogin(userData))
-        localStorage.setItem("logedInUser", JSON.stringify(userData))
+        localStorage.setItem("logedInUser", JSON.stringify(userData));
+        toast("You have registered sucessfully. Welcome aboard !");
         navigate('/')
     })
     .catch(error => console.log("Error occured while log in..."))
