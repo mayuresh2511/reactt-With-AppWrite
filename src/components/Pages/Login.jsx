@@ -8,7 +8,7 @@ import { login as authStoreLogin } from '../../features/auth/authSlice'
 import { setLoading, unSetLoading } from '../../features/loader/loaderSlice'
 
 function Login() {
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLogedIn = useSelector((state) => state.auth.status);

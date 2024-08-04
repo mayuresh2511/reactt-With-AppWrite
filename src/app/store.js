@@ -10,4 +10,4 @@ const allReducers = combineReducers({
 
 export const store = configureStore({
     reducer: allReducers
-}) 
+})

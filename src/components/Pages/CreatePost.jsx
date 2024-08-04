@@ -18,7 +18,7 @@ function CreatePost() {
     const status = data.status;
     const featuredImage = "test";
     const userId = userData.providerUid;
-    databaseService.createPost("1234", {title, content, featuredImage, status, userId});
+    databaseService.createPost("6789", {title, content, featuredImage, status, userId});
     toast("Your post is created", {
         position: "bottom-center",
         autoClose: 5000,

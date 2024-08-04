@@ -88,7 +88,7 @@ export class DatabaseService{
     async getPosts(){
         console.log('DatabaseService getPosts method invoked....');
         try{
-            return await this.databse.getDocument(
+            return await this.databse.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
                 [

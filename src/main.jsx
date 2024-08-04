@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './app/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
-import { Home, About, Login, Contact, Register, CreatePost } from './components/index.js'
+import { Home, About, Login, Contact, Register, CreatePost, Post } from './components/index.js'
 import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register/>
+      },
+      {
+        path: 'post/:id',
+        element: <Post/>
       }
     ]
   }
